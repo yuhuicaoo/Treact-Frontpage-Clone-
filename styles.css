@@ -129,6 +129,7 @@ h1 {
 
 .header__container {
     padding: 96px 0;
+    position: relative;
 }
 
 .header__columns{
@@ -210,6 +211,16 @@ input:focus {
 
 .header__img--wrapper {
     width: 60%;
+}
+
+.header__blob {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 256px;
+    width: 256px;
+    transform: translateX(calc(-2*(100% /3)));
+    opacity: 0.05;
 }
 
 /* FEATURES */
@@ -297,7 +308,7 @@ input:focus {
 }
 
 .quality__left-column{
-    margin-right: 64px;
+    margin-right: 32px;
     padding: 32px 0;
     width: 50%;
     display: flex;
@@ -327,10 +338,22 @@ input:focus {
  }
 
  .quality__img--wrapper {
+    position: relative;
     width: 50%;
+    z-index: 1;
  }
 
-
+.grid1 {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 80px;
+    width: 80px;
+    transform: translate(50%,45%);
+    z-index: -1;
+    color: rgb(100 21 255);
+    fill: currentColor;
+}
 
 /* STEPS SECTION  */
 
@@ -346,6 +369,21 @@ input:focus {
 .steps__img--wrapper {
     width: 50%;
     align-items: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.grid2 {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    z-index: -1;
+    bottom: 0;
+    transform: translateY(40px);
+    color: rgb(100 21 255);
+    fill: currentColor;
+    opacity: 0.25;
 }
 
 .steps__right-column {
@@ -506,26 +544,44 @@ input:focus {
 }
 
 .plans {
+    margin-top: 32px;
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
+.pricing__blob {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 256px;
+    width: 256px;
+    transform: translate(-50%, 50%);
+    opacity: 0.25;
+    z-index: -20;
+}
+
+
+
 .plan {
-    padding: 64px 32px 0 0;
+    padding-right: 32px;
     width: calc(100% /3 );
 }
 
 .plan__card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 64px 32px 0 0;
+    margin-right: 32px;
     padding: 0 32px;
+    background-color: white;
 }
 
 
-.plan__highlight--personal  , .plan__highlight--enterprise {
+.plan__highlight--personal, .plan__highlight--enterprise {
     height: 8px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -537,12 +593,16 @@ input:focus {
 
 .plan__highlight--personal, .btn__personal {
     background: linear-gradient(115deg, rgb(56, 178, 172) 0%, rgb(129, 230, 217) 100%);
-
+    
 }
 .plan__highlight--enterprise, .btn__enterprise{
     background: linear-gradient(115deg, rgb(245, 101, 101) 0%, rgb(254, 178, 178) 100%);
 }
 
+.plan__card--middle{
+    background-image: linear-gradient(135deg, rgb(76, 81, 191) 0%, rgb(102, 126, 234) 100%);
+    border-radius: 8px;
+}
 
 .plan__header, .plan__features {
     display: flex;
@@ -618,16 +678,12 @@ input:focus {
     color: #6415ff;
 }
 
-.plan__card--middle{
-    background-image: linear-gradient(135deg, rgb(76, 81, 191) 0%, rgb(102, 126, 234) 100%);
-    border-radius: 8px;
-}
 
 /* FOOTER SECTION  */
 
 footer {
     background: #6415ff;
-    margin: 0 -32px -32px -32px;
+    margin: 96px -32px -32px -32px;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -708,7 +764,7 @@ footer {
 
 .social {
     background-color: white;
-    color: #243363;
+    color: rgb(26, 32, 44);
     height: 32px;
     width: 32px;
     border-radius: 100%;
@@ -728,7 +784,7 @@ footer {
     color: rgb(80, 17, 204);
     z-index: -1;
     opacity: 0.5;
-    transform: matrix(1, 0, 0, 1, -130, -165);
+    transform: translate(-80px, -128px)
 }
 
 .circle7 {
@@ -740,5 +796,5 @@ footer {
     color: rgb(80, 17, 204);
     z-index: -1;
     opacity: 0.5;
-    transform: matrix(1, 0, 0, 1, 150, 150);
+    transform: translate(128px, 192px)
 }
