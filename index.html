@@ -18,13 +18,70 @@
                     <a href="#" class="logo__name logo__name--primary">Treact</a>
                 </div>
                 <ul class="nav__links">
-                    <li><a href="#" class="nav__link nav__link--primary">About</a></li>
-                    <li><a href="#" class="nav__link nav__link--primary">Blog</a></li>
-                    <li><a href="#" class="nav__link nav__link--primary">Pricing</a></li>
-                    <li><a href="#" class="nav__link nav__link--primary">Contact Us</a></li>
-                    <li><a href="#" class="nav__link nav__link--primary nav__link--login">Login</a></li>
-                    <li><a href="#" class="nav__link nav__link--sign-up">Sign Up</a></li>
+                    <li><a href="#" class="nav__link link--primary">About</a></li>
+                    <li><a href="#" class="nav__link link--primary">Blog</a></li>
+                    <li><a href="#" class="nav__link link--primary">Pricing</a></li>
+                    <li><a href="#" class="nav__link link--primary">Contact Us</a></li>
+                    <li><a href="#" class="nav__link link--primary nav__link--login">Login</a></li>
+                    <li><a href="#" class="nav__link link--sign-up">Sign Up</a></li>
                 </ul>
+                <button class="btn__menu" onclick="openMenu()">
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="light___StyledMenuIcon-sc-lj69nl-15 bPlZcF"
+                    >
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="menu__backdrop">
+                    <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="light___StyledCloseIcon-sc-lj69nl-14 brSrPp"
+                        >
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <ul class="menu__links">
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--primary">About</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--primary">Blog</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--primary">Pricing</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--primary">Contact Us</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--primary">Login</a>
+                        </li>
+                        <li class="menu__list">
+                            <a href="" class="menu__link link--sign-up">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <header>
@@ -200,7 +257,7 @@
                                 <div class="step__number">02</div>
                                 <div class="step__description">
                                     <div class="step__title">Download</div>
-                                    <p class="step__para">Create an account with us using Google or Facebook</p>
+                                    <p class="step__para">Browse and Download the template that you like from the marketplace</p>
                                 </div>
                             </div>
 
@@ -208,7 +265,7 @@
                                 <div class="step__number">03</div>
                                 <div class="step__description">
                                     <div class="step__title">Run</div>
-                                    <p class="step__para">Create an account with us using Google or Facebook</p>
+                                    <p class="step__para">Follow the instructions to setup and customize the template to your needs</p>
                                 </div>
                             </div>
 
@@ -305,13 +362,13 @@
                 <div class="row">
                     <div class="pricings__heading">
                         <h3 class="pricings__title"><span class="purple">PRICING</span></h3>
-                        <h2 class="values__subtitle">Reasonable & Flexible <span class="purple">Plans.</span></h2>
+                        <h2 class="pricings__subtitle">Reasonable & Flexible <span class="purple">Plans.</span></h2>
                         <p class="pricings__para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium similique vero vel officia corrupti atque quam, aliquam voluptas perspiciatis facere!</p>
                     </div>
 
                     <div class="plans">
                         <div class="plan">
-                            <div class="plan__card personal">
+                            <div class="plan__card plan__card--left">
                                 <div class="plan__header personal">
                                     <div class="plan__highlight--personal"></div>
                                     <span class="name">PERSONAL</span>
@@ -352,7 +409,7 @@
                         </div>
                         <div class="plan">
                             <div class="plan__card">
-                                <div class="plan__header">
+                                <div class="plan__header plan__card--right">
                                     <div class="plan__highlight--enterprise"></div>
                                     <span class="name">ENTERPRISE</span>
                                     <span class="price">$57.99</span>
@@ -412,38 +469,48 @@
                <div class="links">
                     <div class="link">
                         <h3 class="link__heading">MAIN</h3>
-                        <a class="link__anchor">Blog</a>
-                        <a class="link__anchor">FAQs</a>
-                        <a class="link__anchor">Support</a>
-                        <a class="link__anchor">About Us</a>
+                        <ul class="anchor__list">
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Blog</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">FAQs</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Support</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">About us</a></li>   
+                        </ul>
                     </div>
                     <div class="link">
                         <h3 class="link__heading">PRODUCT</h3>
-                        <a class="link__anchor">Log In</a>
-                        <a class="link__anchor">Personal</a>
-                        <a class="link__anchor">Business</a>
-                        <a class="link__anchor">Team</a>
+                        <ul class="anchor__list">
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Log In</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Personal</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Business</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Team</a></li>   
+                        </ul>
                     </div>
                     <div class="link">
                         <h3 class="link__heading">PRESS</h3>
-                        <a class="link__anchor">Logos</a>
-                        <a class="link__anchor">Events</a>
-                        <a class="link__anchor">Stories</a>
-                        <a class="link__anchor">Offices</a>
+                        <ul class="anchor__list">
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Logos</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Events</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Stories</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Office</a></li>   
+                        </ul>
                     </div>
                     <div class="link">
                         <h3 class="link__heading">TEAM</h3>
-                        <a class="link__anchor">Career</a>
-                        <a class="link__anchor">Founders</a>
-                        <a class="link__anchor">Culture</a>
-                        <a class="link__anchor">Onboarding</a>
+                        <ul class="anchor__list">
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Career</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Founders</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Culture</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Onboarding</a></li>   
+                        </ul>
                     </div>
                     <div class="link">
                         <h3 class="link__heading">LEGAL</h3>
-                        <a class="link__anchor">GDPR</a>
-                        <a class="link__anchor">Privary Policy</a>
-                        <a class="link__anchor">Terms of Service</a>
-                        <a class="link__anchor">Disclaimer</a>
+                        <ul class="anchor__list">
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">GDPR</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Privacy Policy</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Terms of Service</a></li>
+                            <li class="link__anchor"><a href="" class="link__anchor--primary no-cursor">Disclaimer</a></li>   
+                        </ul>
                     </div>
                </div>
                <div class="line"></div>

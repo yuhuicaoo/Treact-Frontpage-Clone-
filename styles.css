@@ -23,8 +23,9 @@ h2 {
 }
 
 
-button {
+button, .nav__link--sign-up, .btn__menu{
     cursor: pointer;
+    transition: all 300ms ease;
 }
 
 ul {
@@ -54,11 +55,14 @@ img {
     border: none;
     border-radius: 100px ;
     color: white;
-    transition: background-color 300ms ease;
 }
 
 .btn:hover, .nav__link--sign-up:hover {
     background-color: rgb(80, 17, 204);
+}
+
+.no-cursor {
+    cursor: not-allowed;
 }
 
 /* NAV */
@@ -99,26 +103,92 @@ img {
     font-size: 14px;
     margin: 0 24px;
     color: #243E63;
+    border-bottom: 2px solid transparent;
     transition: color 300ms , border-color 300ms;
 }
 
-.nav__link--primary:hover {
+.link--primary:hover {
     color: #6415ff;
-    border-bottom: 2px solid #6415ff;
+    border-color: #6415ff;
 }
 
 .nav__link--login {
     margin: 0 24px 0 48px;
 }
 
-.nav__link--sign-up {
+.btn__menu {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+.btn__menu--close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.btn__menu:hover {
+    color: #6415ff;
+}
+
+.menu__backdrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 400px;
+    border-radius: 8px;
+    border: 2px solid rgb(236, 236, 236);
+    margin: 24px 16px;
+    padding: 32px;
+    z-index: 100;
+    transition: all 300ms ease;
+    background-color: white;
+}
+
+.menu--open .menu__backdrop {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu--open {
+    overflow-y: hidden;
+}
+
+.menu__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu__list {
+    margin: 12px 0;
+    padding-bottom: 4px;
+    font-size: 18px;
+}
+
+.menu__link {
+    color: #1A202C;
+    font-weight: 600;
+    font-size: 18px;
+    border-bottom: 2px solid transparent;
+}
+
+.link--sign-up {
     background-color: #6415ff;
     padding: 12px 32px;
     border-radius: 50px;
     color: white;
     transition: all 300ms ease;
 }
-
 
 /* HEADER */
 
@@ -289,6 +359,8 @@ input:focus {
     width: 64px;
     height: 64px;
     padding: 20px;
+    border-radius: 100%;
+    border: 1px solid rgb(226, 232, 240);
 }
 
  .icon__wrapper--img {
@@ -341,6 +413,10 @@ input:focus {
     position: relative;
     width: 50%;
     z-index: 1;
+ }
+
+ .quality__img {
+    border: 1px solid rgb(226, 232, 240)
  }
 
 .grid1 {
@@ -469,6 +545,7 @@ input:focus {
 
 .values__examples {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 16px;
 }
 
@@ -533,6 +610,11 @@ input:focus {
     align-items: center;
 }
 
+.pricings__title {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
 .pricings__para {
     margin: 16px 0 32px 0;
     max-width: 576px;
@@ -550,6 +632,7 @@ input:focus {
     position: relative;
 }
 
+
 .pricing__blob {
     position: absolute;
     bottom: 0;
@@ -561,17 +644,16 @@ input:focus {
     z-index: -20;
 }
 
-
-
 .plan {
-    padding-right: 32px;
     width: calc(100% /3 );
+    padding-right: 32px;
 }
 
 .plan__card {
     border: 1px solid #e5e7eb;
     border-radius: 10px;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -603,6 +685,7 @@ input:focus {
     background-image: linear-gradient(135deg, rgb(76, 81, 191) 0%, rgb(102, 126, 234) 100%);
     border-radius: 8px;
 }
+
 
 .plan__header, .plan__features {
     display: flex;
@@ -646,6 +729,7 @@ input:focus {
     color: #1A202C;
     font-size: 20px;
     font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
 .feature {
@@ -657,7 +741,12 @@ input:focus {
 } 
 
 .button__buy-now {
-    padding: 32px;
+    padding: 32px 64px;
+}
+
+.buy-now:hover {
+    transform: translate(1px, -1px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04);
 }
 
 .buy-now {
@@ -698,6 +787,7 @@ footer {
     margin-top: 48px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .link {
@@ -707,6 +797,11 @@ footer {
     color: white;
 }
 
+.anchor__list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
 
 .footer__info {
     display: flex;
@@ -719,8 +814,19 @@ footer {
 }
 
 .link__anchor {
-    margin: 12px 0 4px 0;
+    margin-top: 12px;
+}
+
+.link__anchor--primary{
+    border-bottom: 2px solid transparent;
+    color: white;
     font-size: 14px;
+    padding-bottom: 4px;
+    transition: all 300ms ease;
+}
+
+.link__anchor--primary:hover {
+    border-color: white;
 }
 
 
@@ -769,6 +875,11 @@ footer {
     width: 32px;
     border-radius: 100%;
     padding: 8px;
+    transition: all 300ms ease;
+}
+
+.social:hover {
+    background-color: rgb(203 213 224);
 }
 
 .first, .second {
@@ -797,4 +908,223 @@ footer {
     z-index: -1;
     opacity: 0.5;
     transform: translate(128px, 192px)
+}
+
+
+@media (max-width: 1024px){
+    .nav__link{
+        display: none;
+    }
+
+    .btn__menu {
+        display: block;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .header__columns {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header__para {
+        margin: 20px 0;
+        font-size: 16px;
+    }
+
+    .header__inputs {
+        margin: 0 auto;
+        max-width: 448px;
+    }
+
+    .header__left-column, .header__img--wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 512px;
+    }
+
+    .header__trusted {
+        align-items: center;
+    }
+
+    .header__trusted, .quality__para, .values__para {
+        font-size: 16px;
+    }
+
+    .header__trusted--img {
+        padding-right: 0;
+    }
+
+    /* services */
+
+    .services {
+        max-width: 768px;
+    }
+
+    .service {
+        width: 50%;
+    }
+
+    /* quality */
+
+    .quality__left-column {
+        margin-right: 48px;
+    }
+
+    .quality__subtitle, .steps__subtitle {
+        font-size: 36px;
+    }
+
+    /* values */
+
+    .values__examples {
+        display: flex;
+        width: 75%;
+    }
+
+    /* pricing */
+
+    .plans {
+        max-width: 384px;
+        margin: 0 auto;
+    }
+
+    .plan {
+        padding-right: 0;
+        margin-top: 64px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .services {
+        max-width: 384px;
+    }
+
+    .service {
+        width: 100%
+    }
+
+    .quality__columns, .values__columns {
+        flex-direction: column-reverse;
+    }
+
+    .quality__img--wrapper, .quality__left-column, .steps__right-column, .steps__img--wrapper, .values__left-column, .values__img--wrapper{
+        width: 100%;
+        max-width: 448px;
+    }
+
+    .quality__left-column, .steps__right-column {
+        margin: 64px auto 0 auto;
+        text-align: center;
+    }
+
+    .quality__subtitle, .steps__subtitle, .values__subtitle {
+        font-size: 36px;
+    }
+
+    .features__para, .quality__para, .values__para, .pricings__para {
+        font-size: 14px;
+    }
+    
+
+    .steps__right-column {
+        padding: 0;
+    }
+
+    .steps__columns {
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .steps__subtitle {
+        width: 100%;
+    }
+
+    .step {
+        display: block;
+        
+    }
+
+    .step__description {
+        margin: 0 auto
+    }
+
+    .values__examples {
+        max-width: 320px;
+    }
+
+    .values__left-column {
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .values__icon {
+        justify-content: center;
+    }
+
+    .value1 {
+        margin-right: 0;
+    }
+
+    .values__examples {
+        margin: 0 auto;
+    }
+
+    .values__subtitle {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .links {
+        margin-top: -48px;
+        justify-content: flex-start;
+    }
+
+    .link {
+        width: calc(100% / 3);
+        margin-top: 48px;
+    }
+
+    .footer__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .copyright {
+        margin: 32px 0
+    }
+}
+
+@media (max-width: 638px) {
+    .btn__email {
+        position: static;
+        width: 100%;
+    }
+
+    .header__trusted {
+        margin-top: 48px;
+    }
+
+    .features__subtitle {
+        text-align: center;
+    }
+
+    .values__subtitle {
+        font-size: 36px;
+    }
+
+    .pricings__subtitle {
+        text-align: center;
+        font-size: 36px;
+    }
+
+    .link {
+        width: calc(100% / 5);
+    }
 }
