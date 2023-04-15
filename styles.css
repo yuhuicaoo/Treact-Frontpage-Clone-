@@ -222,7 +222,7 @@ h1 {
 
 .header__input--email {
     width: 100%;
-    padding: 22px 192px 22px 32px;
+    padding: 22px 0 22px 32px;
     border: 2px solid rgb(226, 232, 240);
     border-radius: 100px;
     font-size: 100%;
@@ -1126,5 +1126,7 @@ footer {
 
     .link {
         width: calc(100% / 5);
+        min-width: 150px;
+        text-align: center;
     }
 }
